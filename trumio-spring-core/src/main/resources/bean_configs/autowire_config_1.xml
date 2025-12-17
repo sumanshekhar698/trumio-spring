@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd
+ http://www.springframework.org/schema/context
+ http://www.springframework.org/schema/context/spring-context.xsd
+ ">
+
+	<!-- Enable @AuTowire config -->
+	<context:annotation-config />
+
+	<!-- recommended to set same bean name as that name for variable -->
+	<bean class="com.spring.core.auto_wire.annotations.Address"
+		name="current" p:street="Kalikapoor" p:city="Delhi 6" p:pin="700107" />
+
+	<bean class="com.spring.core.auto_wire.annotations.Address"
+		name="permanent" p:street="White Field" p:city="Bangalore"
+		p:pin="701605" />
+
+	<bean class="com.spring.core.auto_wire.annotations.Address"
+		name="address" p:street="Pink City" p:city="Jaipur"
+		p:pin="901675" />
+		
+	<bean class="com.spring.core.auto_wire.annotations.Worker"
+		name="w1" />
+
+</beans>

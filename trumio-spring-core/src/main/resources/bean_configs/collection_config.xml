@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd
+ http://www.springframework.org/schema/context
+ http://www.springframework.org/schema/beans/spring-context.xsd">
+
+
+	<!-- this is our 1st bean and we are injecting collections -->
+	<bean name="emp1" class="com.spring.core.injecting_collections.Employee">
+		<property name="name" value="John Doe" />
+		<property name="phones">
+			<list>
+				<value>9563265148</value>
+				<value>9563265148</value>
+				<value>9563265148</value>
+				<!-- to insert null value use <null/> tag -->
+				<null />
+			</list>
+		</property>
+
+		<!-- for one element only , no need for list/set tag -->
+		<property name="pin">
+			<value>828130</value>
+		</property>
+
+		<property name="tags">
+			<!-- Creates an Empty List -->
+			<list>
+			</list>
+		</property>
+
+		<property name="address">
+			<set>
+				<value>Delhi</value>
+				<value>Lucknow</value>
+				<value>Kanpur</value>
+				<value>Delhi</value>
+			</set>
+		</property>
+
+		<property name="course">
+			<map>
+				<entry key="Java" value="3" />
+				<entry key="Python" value="4" />
+				<entry key="JS" value="6.5" />
+			</map>
+		</property>
+
+		<property name="general">
+			<props>
+				<prop key="gender">male</prop>
+				<prop key="age">24</prop>
+				<prop key="passportAvailbility">YES</prop>
+			</props>
+		</property>
+
+	</bean>
+</beans>

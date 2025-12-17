@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd
+ http://www.springframework.org/schema/context
+ http://www.springframework.org/schema/beans/spring-context.xsd">
+
+	<!-- this is our B bean -->
+	<bean class="com.spring.core.reference_injection.BClass" name="bref">
+		<property name="yVar" value="25" />
+	</bean>
+
+	<!-- this is for our A bean and we will inject B obj reference -->
+	<bean class="com.spring.core.reference_injection.AClass" name="aref1">
+		<property name="xVar" value="24" />
+
+		 <property name="bObj">
+		 <ref bean="bref"/> 
+		 </property> 
+
+		<!-- new way #inline -->
+		<!-- <property name="bObj" ref="bref" /> -->
+	</bean>
+
+	<!-- using p Schema -->
+	<bean class="com.spring.core.reference_injection.AClass" name="aref2"
+		p:xVar="25" p:bObj-ref="bref" />
+	<!-- p:obj-ref is telling obj is of ref type -->
+</beans>

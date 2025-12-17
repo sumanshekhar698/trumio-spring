@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd
+ http://www.springframework.org/schema/context
+ http://www.springframework.org/schema/beans/spring-context.xsd">
+
+
+	<!-- this is our 1st bean -->
+	<bean class="com.spring.core.simple_di.Student" name="student1">
+		<!-- For setter injection we use property tag -->
+		<!-- <property name="studentId" value="6057" /> -->
+		<property name="studentId">
+			<value>6057</value>
+		</property>
+		<property name="studentName">
+			<value>Suman</value>
+		</property>
+
+		<property name="studentAddress">
+			<value>Bangalore</value>
+		</property>
+	</bean>
+
+
+	<!-- this is our 2nd bean using inline property tag -->
+	<bean class="com.spring.core.simple_di.Student" name="student2">
+		<property name="studentId" value="6058" />
+		<property name="studentName">
+			<value>Suphlay</value>
+		</property>
+
+
+		<property name="studentAddress">
+			<value>Kolkata</value>
+		</property>
+	</bean>
+
+
+	<!-- this is our 3rd bean using P Schema(properties) and it has to be included 
+		in the schema tag -->
+	<bean class="com.spring.core.simple_di.Student" name="student3"
+		p:studentId="6059" p:studentName="Ujjwal" p:studentAddress="Hooghly" />
+</beans>

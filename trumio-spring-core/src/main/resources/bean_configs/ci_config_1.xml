@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+ http://www.springframework.org/schema/beans/spring-beans.xsd
+ http://www.springframework.org/schema/context
+ http://www.springframework.org/schema/beans/spring-context.xsd">
+
+
+	<!-- this is our 1st bean for Certi using C-schema -->
+	<bean class="com.spring.core.constructor_injection.Certificate"
+		name="certificate1" c:name="JAVA-OCJB">
+		<!-- <constructor-arg value="Spring WEB"/> -->
+	</bean>
+
+	<!-- this is our 1st bean for Person -->
+	<bean class="com.spring.core.constructor_injection.Person"
+		name="person1">
+
+		<constructor-arg>
+			<value>Suman Shekhar</value>
+		</constructor-arg>
+
+		<!-- <constructor-arg value="18"/> -->
+		<!-- It will automatically convert compatible String to int. -->
+		
+		<!-- But we can explicitly specify also the type -->
+		<!-- its a good habit to define the type explicitly -->
+		<!-- because it will avoid ambiguity in multiple constructors -->
+
+		<constructor-arg value="18" type="int" />
+		<constructor-arg ref="certificate1" />
+		<constructor-arg type="java.util.List">
+			<list>
+				<value>Python</value>
+				<value>JAVA</value>
+				<value>Go Lang</value>
+			</list>
+		</constructor-arg>
+	</bean>
+
+
+	<!-- here we cannot use p-type, instead we use c-type schema -->
+	<!-- https://mkyong.com/spring/how-to-inject-null-value-in-spring/ -->
+	<bean class="com.spring.core.constructor_injection.Person"
+		name="person2" c:name="Suman" c:age="20" c:certificate-ref="certificate1">
+		<constructor-arg name="listOfCourses">
+			<null />
+		</constructor-arg>
+	</bean>
+
+
+</beans>
