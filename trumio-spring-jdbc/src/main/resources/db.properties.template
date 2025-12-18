@@ -1,0 +1,5 @@
+# Database Configuration
+db.driver=com.mysql.cj.jdbc.Driver
+db.url=your_jdbc_url
+db.user=your_mysql_username
+db.password=your_mysql_pwd
