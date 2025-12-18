@@ -1,0 +1,91 @@
+Choosing a Java Version an Vendor
+
+
+
+Version: ?? Java 25.x.x
+
+1.7 - 2014
+1.8 - 2015 Java 8*/ JDK 8
+
+Java 9
+Java 10
+
+Java 11*
+
+
+Java 17*
+
+Java 18
+Java 21*
+
+Java 24 - x fearure
+Java 25*
+    - removed
+    - added
+    - enhanced
+    - deprecated x
+
+    Java 28 - remove x
+
+
+LTS (Long Term Support)
+Java 25
+
+
+Non LTS
+
+
+Vendors:
+
+Freemium
+
+Adoptium ✅
+Oracle
+Zuul
+Coretto - Amazon AWS
+Graal
+Bell Labs
+
+
+
+
+JAVA
+
+
+JDK - java Development Kit [Complete Kit]  Includs JRE + some tools javac
+
+
+myApp.jar
+JRE - java Runtime Environment
+
+
+Editor vs IDE
+
+Editor:
+Simple thing, language agnostic and can do basic stuff
+
+
+VS Code Microsoft, Fleet is by jetbrains
+
+
+
+IDE : Integrated Dev Environment
+Heavy tool that is language focused and can facilate rapid development
+
+
+
+
+
+Java:
+
+Eclipse: Eclipse Foundation ✅
+Intellij Idea: Jetbrains
+
+
+
+
+Install Git software
+https://git-scm.com/
+
+
+git clone https://github.com/sumanshekhar698/trumio-spring.git
