@@ -13,8 +13,9 @@
 	<!-- As we are defining the type and position, we are pin-pointing out constructor -->
 	<bean class="com.spring.core.constructor_injection.Addition"
 		name="add">
-		<constructor-arg value="40" type="int" index="1" />
 		<constructor-arg value="60" type="int" index="0" />
+		<constructor-arg value="40" type="int" index="1" />
+		
 		<!-- order can be interchanged via index -->
 	</bean>
 

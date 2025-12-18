@@ -10,6 +10,7 @@ public class Student {
 	}
 
 	public void setStudentId(int studentId) {
+		System.out.println("setting studentId");
 		this.studentId = studentId;
 	}
 

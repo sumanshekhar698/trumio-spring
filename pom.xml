@@ -15,6 +15,7 @@
   <dependencies/>
   <modules>
     <module>trumio-spring-core</module>
-    <module>trumio-java-language</module>
+    <module>trumio-java-lang</module>
+    <module>trumio-spring-jdbc</module>
   </modules>
 </project>

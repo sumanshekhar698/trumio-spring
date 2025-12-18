@@ -4,7 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 
 public class Worker {
-//	@Qualifier("current") // to pin point the dependency
+	@Qualifier("current") // to pin point the dependency
 	@Autowired // uses "type" by default
 	private Address address;
 //	if there are multiple types available, if atleast one is matching the var name, 

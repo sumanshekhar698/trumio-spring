@@ -46,7 +46,8 @@
 			<map>
 				<entry key="Java" value="3" />
 				<entry key="Python" value="4" />
-				<entry key="JS" value="6.5" />
+				<entry key="GoLang" value="6.5" />
+				<entry key="Java" value="7" />
 			</map>
 		</property>
 

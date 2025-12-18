@@ -4,6 +4,13 @@ public class Addition {
 	private int a;
 	private int b;
 
+	
+//	Constructor Overloading
+//	1. No of parameters
+//	2. Type of parameters
+//	3. Position of parameters
+	
+	
 	/*
 	 * Here ambiguity arises if we have it define type in .xml due to ambiguity the
 	 * top order(the 1st) constructor matching the parameter is getting executed

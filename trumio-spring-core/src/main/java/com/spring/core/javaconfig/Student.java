@@ -11,7 +11,7 @@ public class Student {
 
 	public void study() {
 		this.units.order();
-		System.out.println("STYDYING: \"\"The Pen in mightier than sword");
+		System.out.println("STUDYING: The Pen in mightier than sword");
 	}
 
 	public Samosa getUnits() {

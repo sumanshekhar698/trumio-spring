@@ -15,7 +15,11 @@ public class Main {
 		System.out.println();
 
 		// Ambiguity Issue
-		Addition a1 = (Addition) context.getBean("add");
-		a1.doSum();
+//		Addition a1 = (Addition) context.getBean("add");
+//		a1.doSum();
+	}
+
+	void call(String... args) {
+
 	}
 }

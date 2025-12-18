@@ -18,18 +18,15 @@ import org.springframework.context.annotation.Configuration;
 public class JavaConfig {
 
 //	using w/o declaring @Component on the class
-	@Bean
-//	@Bean(name = {"stud","student","schoolBuoy"})
-//	through these names we can access the beans
+//	@Bean
+	@Bean(name = { "stud", "student", "schoolBuoy" }) // through these names we can access the beans
 	public Student getStudent() {
 		return new Student();
-
 	}
 
 	@Bean
 	public Samosa getSamosa() {
 		return new Samosa();
-
 	}
 
 }

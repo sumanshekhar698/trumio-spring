@@ -138,4 +138,8 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 
+# DB Properties file
+*db.properties
+
 # End of https://www.toptal.com/developers/gitignore/api/windows,java,maven,eclipse
+

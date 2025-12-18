@@ -20,7 +20,7 @@
 	<!-- 1) it will search for name "address" in existing bean -->
 	<!-- so it need to be taken care while matching -->
 	<bean class="com.spring.core.auto_wire.xml.Worker" name="w1"
-		autowire="constructor" />
+		autowire="byName" />
 
 	<!-- autowire="byType" -->
 	<!-- when using byType ensure only 1 type matches otherwise Exception will 

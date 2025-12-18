@@ -4,7 +4,7 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Main {
-
+//IOC stands for Inversion of Control :
 	public static void main(String[] args) {
 		System.out.println("START");
 		
@@ -32,6 +32,7 @@ public class Main {
 		
 		Student s3 = (Student) context.getBean("student3");
 		System.out.println(s3);
+		
 		
 		System.out.println("END");
 		
