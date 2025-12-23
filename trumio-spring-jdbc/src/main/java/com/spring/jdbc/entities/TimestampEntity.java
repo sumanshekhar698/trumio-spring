@@ -2,7 +2,7 @@ package com.spring.jdbc.entities;
 
 import java.sql.Timestamp;
 
-public class TimestampEntity {
+public class TimestampEntity {//BoilerPlateCode
 
 	private int id;// id is autogen
 	private String data;

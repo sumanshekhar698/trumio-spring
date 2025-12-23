@@ -26,6 +26,11 @@ public class Main {
 		// the bean will be of Object type , thus type casted with (Student)
 		Student s1 = (Student) context.getBean("student1");
 		System.out.println(s1);
+		System.out.println(s1.hashCode());
+
+		
+		Student s1Bean = (Student) context.getBean("student1");
+		System.out.println(s1Bean.hashCode());
 		
 		Student s2 = (Student) context.getBean("student2");
 		System.out.println(s2);

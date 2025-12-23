@@ -15,4 +15,6 @@ public interface StudentDAO {
 
 	public List<Student> getMultipleStudent();
 
+	public void transferStudentData(int fromId, int toId);
+
 }

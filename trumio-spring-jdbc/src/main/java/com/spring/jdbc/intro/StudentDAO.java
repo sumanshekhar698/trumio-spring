@@ -1,11 +1,11 @@
-package com.spring.jdbc.basics;
+package com.spring.jdbc.intro;
 
 import java.util.List;
 
 import com.spring.jdbc.entities.Student;
 
 //CRUD operation
-public interface StudentDAO {
+public interface StudentDAO {//DAO = Data Access Object
 
 	public int insert(Student student);// C
 

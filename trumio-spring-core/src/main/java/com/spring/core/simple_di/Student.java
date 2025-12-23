@@ -4,7 +4,7 @@ public class Student {
 	private int studentId;
 	private String studentName;
 	private String studentAddress;
-
+	
 	public int getStudentId() {
 		return studentId;
 	}

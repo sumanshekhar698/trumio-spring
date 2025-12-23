@@ -1,4 +1,4 @@
-package com.spring.jdbc.dao;
+package com.spring.jdbc.mapper;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;

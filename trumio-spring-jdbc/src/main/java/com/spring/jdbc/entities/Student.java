@@ -1,6 +1,6 @@
 package com.spring.jdbc.entities;
 
-public class Student {//POJO
+public class Student {// POJO
 
 	private int id;
 	private String name;
