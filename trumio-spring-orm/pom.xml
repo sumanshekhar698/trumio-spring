@@ -7,24 +7,26 @@
 		<artifactId>trumio-spring</artifactId>
 		<version>0.0.1-SNAPSHOT</version>
 	</parent>
-	<artifactId>trumio-spring-core</artifactId>
-	<description>Core part of the Spring Framework</description>
+	<artifactId>trumio-spring-orm</artifactId>
+
 
 	<dependencies>
-		<!--<dependency>
+		<dependency>
 			<groupId>org.springframework</groupId>
-			<artifactId>spring-core</artifactId>
-		</dependency>-->
+			<artifactId>spring-orm</artifactId>
+			<!--<version>${spring.version}</version>-->
+		</dependency>
 
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context</artifactId>
+			<!--<version>${spring.version}</version>-->
 		</dependency>
 
 		<dependency>
-			<groupId>jakarta.annotation</groupId>
-			<artifactId>jakarta.annotation-api</artifactId>
-			<version>${jakarta.annotation.version}</version>
+			<groupId>org.hibernate.orm</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.version}</version>
 		</dependency>
 
 		<dependency>
@@ -32,6 +34,12 @@
 			<artifactId>mysql-connector-j</artifactId>
 			<version>${mysql.version}</version>
 		</dependency>
-	</dependencies>
 
+		<dependency>
+			<groupId>jakarta.annotation</groupId>
+			<artifactId>jakarta.annotation-api</artifactId>
+			<version>${jakarta.annotation.version}</version>
+		</dependency>
+	</dependencies>
+	
 </project>

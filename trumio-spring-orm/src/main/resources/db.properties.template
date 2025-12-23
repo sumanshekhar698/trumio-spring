@@ -1,0 +1,13 @@
+# Database Configuration
+db.driver=com.mysql.cj.jdbc.Driver
+db.url=your_jdbc_url
+db.user=your_mysql_username
+db.password=your_mysql_pwd
+
+
+
+# Hibernate Settings
+hibernate.dialect=org.hibernate.dialect.MySQLDialect
+hibernate.show_sql=true
+hibernate.format_sql=true
+hibernate.hbm2ddl.auto=update

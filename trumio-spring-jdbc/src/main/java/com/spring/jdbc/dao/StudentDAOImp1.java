@@ -119,14 +119,14 @@ public class StudentDAOImp1 implements StudentDAO {
 		return students;
 	}
 
-//	@Transactional
+	@Transactional
 	public void transferStudentData(int fromId, int toId) {
 		// 1. Update the first student (e.g., changing city as a 'move')
 		jdbcTemplate.update("UPDATE student SET city = 'MOVED' WHERE id = ?", fromId);
 
 		// 2. Simulate a Syntax Error or Business Logic Failure
 		// This will trigger the BadSqlGrammarException you saw earlier
-		jdbcTemplate.update("INSERT INTO non_existent_table VALUES ('error')");
+		jdbcTemplate.update("INSERT INTO non_existent_table VALUES ('error')");//Exception
 
 		// 3. Update the second student
 		jdbcTemplate.update("UPDATE student SET city = 'RECEIVED' WHERE id = ?", toId);

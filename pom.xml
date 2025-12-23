@@ -1,21 +1,50 @@
-<?xml version="1.0" encoding="UTF-8"?><project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
-  <modelVersion>4.0.0</modelVersion>
-  <groupId>com.trumio.spring</groupId>
-  <artifactId>trumio-spring</artifactId>
-  <version>0.0.1-SNAPSHOT</version>
-  <name>trumio-spring</name>
-  <description>We will learn Spring Framework</description>
-  <properties>
-    <maven.compiler.source>25</maven.compiler.source>
-    <maven.compiler.target>25</maven.compiler.target>
-    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-  </properties>
-  <!--  The parent project must have a packaging type of POM-->
-  <packaging>pom</packaging>
-  <dependencies/>
-  <modules>
-    <module>trumio-spring-core</module>
-    <module>trumio-java-lang</module>
-    <module>trumio-spring-jdbc</module>
-  </modules>
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>com.trumio.spring</groupId>
+	<artifactId>trumio-spring</artifactId>
+	<version>0.0.1-SNAPSHOT</version>
+	<name>trumio-spring</name>
+	<description>We will learn Spring Framework</description>
+
+
+	<properties>
+
+		<spring.version>6.2.11</spring.version>
+		<hibernate.version>6.6.40.Final</hibernate.version>
+		<mysql.version>8.3.0</mysql.version>
+		<jakarta.persistence.version>3.2.0</jakarta.persistence.version>
+		<jakarta.annotation.version>3.0.0</jakarta.annotation.version>
+		
+
+
+		<maven.compiler.source>25</maven.compiler.source>
+		<maven.compiler.target>25</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+	
+	
+	<!--  The parent project must have a packaging type of POM-->
+	<packaging>pom</packaging>
+	
+	<modules>
+		<module>trumio-spring-core</module>
+		<module>trumio-java-lang</module>
+		<module>trumio-spring-jdbc</module>
+		<module>trumio-spring-orm</module>
+	</modules>
+	
+	<dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework</groupId>
+                <artifactId>spring-framework-bom</artifactId>
+                <version>${spring.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
 </project>
