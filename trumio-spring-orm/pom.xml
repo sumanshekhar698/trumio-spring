@@ -40,6 +40,14 @@
 			<artifactId>jakarta.annotation-api</artifactId>
 			<version>${jakarta.annotation.version}</version>
 		</dependency>
+
+		<dependency>
+			<groupId>com.opencsv</groupId>
+			<artifactId>opencsv</artifactId>
+			<version>${opencsv.version}</version>
+		</dependency>
+
+
 	</dependencies>
-	
+
 </project>

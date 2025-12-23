@@ -2,6 +2,9 @@ package com.spring.orm.entities;
 
 import jakarta.persistence.*;
 
+
+/*Correct Bidirectional Mapping (Your Case)
+Project (Owning side)*/
 @Entity
 @Table(name = "projects")
 public class Project {
@@ -12,7 +15,7 @@ public class Project {
     private String projectName;
 
     @ManyToOne
-    @JoinColumn(name = "emp_id")
+    @JoinColumn(name = "emp_id")//emp_id refers to the foreign key column name
     private Employee employee;
 
     // Getters and Setters
