@@ -44,7 +44,8 @@ public class EmployeeDaoImpl implements EmployeeDao {
 	@Transactional(readOnly = true)
 	public List<Employee> getEmployeesGoodWay() {
 		return sessionFactory.getCurrentSession()
-				.createQuery("select e from Employee e join fetch e.projects", Employee.class).getResultList();// HQL /
+				.createQuery("select e from Employee e join fetch e.projects", Employee.class)
+				.getResultList();// HQL /
 																												// JPQL
 																												// (Object-centric)
 

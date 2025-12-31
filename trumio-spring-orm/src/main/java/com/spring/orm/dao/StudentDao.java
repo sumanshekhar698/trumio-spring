@@ -24,4 +24,7 @@ public interface StudentDao {
 
 	// 5. DELETE
 	public void deleteStudent(int studentId);
+	
+	// 5. DIRTY CHECK
+	public void testDirtyChecking();
 }

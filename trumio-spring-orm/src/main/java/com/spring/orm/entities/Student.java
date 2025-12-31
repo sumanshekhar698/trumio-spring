@@ -1,16 +1,17 @@
 package com.spring.orm.entities;
 
+import org.hibernate.annotations.DynamicUpdate;
+
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Version;
 
 @Entity
 @Table(name = "student") // Table name change
+@DynamicUpdate // Hibernate will only generate SQL for changed columns
 public class Student {
-
 
 	@Id
 //	@GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-increment in MySQL
@@ -22,6 +23,9 @@ public class Student {
 
 	@Column(name = "city", length = 200)
 	private String city;
+
+	@Version
+	private int version;
 
 	// --- Constructors ---
 
@@ -67,6 +71,14 @@ public class Student {
 
 	public void setCity(String city) {
 		this.city = city;
+	}
+
+	public int getVersion() {
+		return version;
+	}
+
+	public void setVersion(int version) {
+		this.version = version;
 	}
 
 	@Override

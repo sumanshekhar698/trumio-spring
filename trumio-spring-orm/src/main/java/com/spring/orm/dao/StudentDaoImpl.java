@@ -61,4 +61,24 @@ public class StudentDaoImpl implements StudentDao {
 			session.remove(student); // 'remove' replaces 'delete' in Hibernate 6
 		}
 	}
+	
+	
+	@Transactional
+	public void testDirtyChecking() {
+	    Session session = sessionFactory.getCurrentSession();
+
+	    // Fetch student 101: Hibernate takes a Snapshot (Name: "Amit", City: "Delhi")
+	    Student student = session.get(Student.class, 101);
+
+	    // Change the city
+	    student.setCity("Mumbai"); 
+
+	    // Change it back to the ORIGINAL value
+	    student.setCity("Delhi");
+
+	    // Transaction ends here.
+	    // Dirty Check: Current("Delhi") == Snapshot("Delhi")? YES.
+	    // Result: NO UPDATE SQL is fired at all!
+	    
+	}
 }

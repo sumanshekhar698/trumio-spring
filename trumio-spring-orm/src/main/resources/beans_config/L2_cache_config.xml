@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+	<context:component-scan
+		base-package="com.spring.orm" />
+
+	<tx:annotation-driven
+		transaction-manager="transactionManager" />
+
+
+	<context:property-placeholder
+		location="classpath:db.properties" />
+
+
+	<bean
+		class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+		name="dso">
+		<property name="driverClassName" value="${db.driver}" />
+		<property name="url" value="${db.url}" />
+		<property name="username" value="${db.username}" />
+		<property name="password" value="${db.password}" />
+	</bean>
+
+
+	<!-- <bean class="org.springframework.orm.hibernate5.LocalSessionFactoryBean" 
+		name="factory"> org.hibernate.SessionFactory. <property name="dataSource" 
+		ref="dso" /> <property name="packagesToScan" value="com.spring.orm.entities" 
+		/> <property name="hibernateProperties"> <props> <prop key="hibernate.dialect">${hibernate.dialect}</prop> 
+		<prop key="hibernate.show_sql">${hibernate.show_sql}</prop> <prop key="hibernate.format_sql">${hibernate.format_sql}</prop> 
+		<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop> </props> 
+		</property> </bean> -->
+
+
+	<bean
+		class="org.springframework.orm.hibernate5.LocalSessionFactoryBean"
+		name="factory">
+
+		<property name="dataSource" ref="dso" />
+		<property name="packagesToScan"
+			value="com.spring.orm.entities" />
+
+		<property name="hibernateProperties">
+			<props>
+
+
+
+				<!-- JCache integration -->
+				<!-- <prop key="hibernate.cache.region.factory_class">jcache</prop> <prop 
+					key="hibernate.javax.cache.provider"> org.ehcache.jsr107.EhcacheCachingProvider 
+					</prop> -->
+
+				<!-- Ehcache config -->
+				<!-- <prop key="hibernate.javax.cache.uri"> classpath:ehcache.xml </prop> -->
+
+
+				<!-- Second Level Cache -->
+				<!-- Enable L2 cache -->
+				<prop key="hibernate.cache.use_second_level_cache">true</prop>
+				<prop key="hibernate.cache.use_query_cache">false</prop>
+
+				<!-- JCache -->
+				<prop key="hibernate.cache.region.factory_class">
+					org.hibernate.cache.jcache.JCacheRegionFactory
+				</prop>
+
+				<!-- Caffeine Provider -->
+				<prop key="hibernate.javax.cache.provider">
+					com.github.benmanes.caffeine.jcache.spi.CaffeineCachingProvider
+				</prop>
+				
+				<prop key="hibernate.generate_statistics">true</prop>
+				
+
+
+				<!-- Existing properties -->
+				<prop key="hibernate.dialect">${hibernate.dialect}</prop>
+				<prop key="hibernate.show_sql">${hibernate.show_sql}</prop>
+				<prop key="hibernate.format_sql">${hibernate.format_sql}</prop>
+				<prop key="hibernate.hbm2ddl.auto">${hibernate.hbm2ddl.auto}</prop>
+			</props>
+		</property>
+	</bean>
+
+
+	<bean
+		class="org.springframework.orm.hibernate5.HibernateTransactionManager"
+		name="transactionManager">
+		<property name="sessionFactory" ref="factory" />
+	</bean>
+
+</beans>

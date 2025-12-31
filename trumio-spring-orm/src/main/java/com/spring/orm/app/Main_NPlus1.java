@@ -18,17 +18,17 @@ public class Main_NPlus1 {
 //       csvLoaderService.loadDataFromCsv();
 
 		// This will print 1 query for employees + N queries for their projects
-		System.out.println("--- Starting N+1 Problem ---");
-		List<Employee> emps = dao.getEmployeesBadWay();
-		for (Employee e : emps) {
-			System.out.println(e.getName() + " works on: " + e.getProjects().size());
-		}
+//		System.out.println("--- Starting N+1 Problem ---");
+//		List<Employee> emps = dao.getEmployeesBadWay();
+//		for (Employee e : emps) {
+//			System.out.println(e.getName() + " works on: " + e.getProjects().size());
+//		}
 
 		// This will print exactly 1 query total
-//        System.out.println("--- Using Join Fetch Fix ---");
-//        List<Employee> optimizedEmps = dao.getEmployeesGoodWay();
-//        for (Employee e : optimizedEmps) {
-//            System.out.println(e.getName() + " works on: " + e.getProjects().size() + " projects");
-//        }
+        System.out.println("--- Using Join Fetch Fix ---");
+        List<Employee> optimizedEmps = dao.getEmployeesGoodWay();
+        for (Employee e : optimizedEmps) {
+            System.out.println(e.getName() + " works on: " + e.getProjects().size() + " projects");
+        }
 	}
 }

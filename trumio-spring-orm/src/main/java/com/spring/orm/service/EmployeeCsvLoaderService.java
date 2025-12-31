@@ -1,4 +1,4 @@
-package com.spring.orm.data_seeder;
+package com.spring.orm.service;
 
 import com.opencsv.CSVReader;
 import com.spring.orm.entities.Employee;
@@ -14,7 +14,7 @@ import java.util.HashMap;
 import java.util.Map;
 
 @Service
-public class CsvLoaderService {
+public class EmployeeCsvLoaderService {
 
     @Autowired
     private SessionFactory sessionFactory;
@@ -28,7 +28,7 @@ public class CsvLoaderService {
                 getClass().getClassLoader().getResourceAsStream("data/employees.csv")))) {
             
             String[] line;
-            reader.readNext(); // Skip Header
+            reader.readNext(); // Skip Header Line
 
             while ((line = reader.readNext()) != null) {
                 String empName = line[0];

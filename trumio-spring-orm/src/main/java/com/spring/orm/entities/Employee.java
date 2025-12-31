@@ -12,6 +12,7 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
+import jakarta.persistence.Version;
 
 @Entity
 @Table(name = "employees")
@@ -20,6 +21,10 @@ public class Employee {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	private String name;
+	
+	// Optimistic Locking: Hibernate manages this automatically
+    @Version
+    private Integer version;
 	
 	// LAZY loading triggers the N+1 problem when accessing the list in a loop
 	@OneToMany(mappedBy = "employee", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
@@ -51,4 +56,6 @@ public class Employee {
 	public void setProjects(List<Project> projects) {
 		this.projects = projects;
 	}
+	
+	public Integer getVersion() { return version; }
 }

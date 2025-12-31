@@ -38,5 +38,7 @@ public class Main_Intro {
 		for (Student s : all) {
 			System.out.println(s);
 		}
+		
+
 	}
 }
