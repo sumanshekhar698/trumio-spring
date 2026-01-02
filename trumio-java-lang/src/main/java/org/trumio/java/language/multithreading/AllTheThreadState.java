@@ -3,6 +3,7 @@ public class AllTheThreadState {
     public static void main(String[] args) throws InterruptedException {
         Object lock = new Object();
 
+        // Deadlock, Daemon Thread
         // 1. NEW
         Thread worker = new Thread(() -> {
             synchronized (lock) {
