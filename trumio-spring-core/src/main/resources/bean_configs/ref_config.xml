@@ -18,15 +18,24 @@
 		<property name="xVar" value="24" />
 
 		 <property name="bObj">
-		 <ref bean="bref"/> 
-		 </property> 
+		 <ref bean="bref"/>
+		 </property>
+
+		<!-- new way #inline -->
+		<!-- <property name="bObj" ref="bref" /> -->
+	</bean>
+
+	<bean class="com.spring.core.reference_injection.AClass" name="aref2">
+		<property name="xVar" value="25" />
+
+		<property name="bObj" ref="bref"/>
 
 		<!-- new way #inline -->
 		<!-- <property name="bObj" ref="bref" /> -->
 	</bean>
 
 	<!-- using p Schema -->
-	<bean class="com.spring.core.reference_injection.AClass" name="aref2"
-		p:xVar="25" p:bObj-ref="bref" />
-	<!-- p:obj-ref is telling obj is of ref type -->
+	<bean class="com.spring.core.reference_injection.AClass" name="aref3"
+		p:xVar="26" p:bObj-ref="bref" />
+	<!-- p:obj-ref is telling obj is of a ref type -->
 </beans>

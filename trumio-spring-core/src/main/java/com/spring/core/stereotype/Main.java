@@ -7,7 +7,8 @@ public class Main {
 
 	public static void main(String[] args) {
 
-		ApplicationContext context = new ClassPathXmlApplicationContext("bean_configs/stereo_config.xml");
+		ApplicationContext context =
+				new ClassPathXmlApplicationContext("bean_configs/stereo_config.xml");
 		Student s1 = context.getBean("s1", Student.class);//
 		System.out.println(s1);
 		System.out.println(s1.getCourses().getClass());

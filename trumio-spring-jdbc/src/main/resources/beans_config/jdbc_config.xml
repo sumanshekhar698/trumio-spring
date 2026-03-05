@@ -1,70 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:context="http://www.springframework.org/schema/context"
-	xmlns:p="http://www.springframework.org/schema/p"
-	xmlns:util="http://www.springframework.org/schema/util"
-	xmlns:tx="http://www.springframework.org/schema/tx"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans
- http://www.springframework.org/schema/beans/spring-beans.xsd
- http://www.springframework.org/schema/context
- http://www.springframework.org/schema/context/spring-context.xsd
- http://www.springframework.org/schema/util
- http://www.springframework.org/schema/util/spring-util.xsd
- http://www.springframework.org/schema/tx/spring-tx.xsd">
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context
+        http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/util
+        http://www.springframework.org/schema/util/spring-util.xsd
+        http://www.springframework.org/schema/tx
+        http://www.springframework.org/schema/tx/spring-tx.xsd">
 
+    <!--    This will load all the key value pairs in the memory-->
+    <context:property-placeholder location="classpath:db.properties"/>
 
-	<context:property-placeholder
-		location="classpath:db.properties" />
+    <!--	<tx:annotation-driven transaction-manager="transactionManager" />-->
 
+    <bean class="org.springframework.jdbc.datasource.DriverManagerDataSource"
+          name="dso">
+        <property name="driverClassName" value="${db.driver}"/>
+        <property name="url" value="${db.url}"/>
+        <property name="username" value="${db.user}"/>
+        <property name="password" value="${db.password}"/>
+    </bean>
 
+    <bean class="org.springframework.jdbc.core.JdbcTemplate" name="jdbcTemplate"
+          p:dataSource-ref="dso"/>
 
+    <bean id="transactionManager"
+          class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dso"/>
+    </bean>
 
-	<tx:annotation-driven
-		transaction-manager="transactionManager" />
-
-
-
-
-
-	<!-- STEP 1 create object of DriverManagerDataSource -->
-	<bean
-		class="org.springframework.jdbc.datasource.DriverManagerDataSource"
-		name="dso">
-		<!-- Deprecated -->
-		<!-- <property name="driverClassName" value="com.mysql.jdbc.Driver"/> -->
-		<!-- NEW driver -> com.mysql.cj.jdbc.Driver -->
-		<property name="driverClassName" value="${db.driver}" />
-		<property name="url" value="${db.url}" />
-		<property name="username" value="${db.username}" />
-		<property name="password" value="${db.password}" />
-	</bean>
-
-
-
-
-	<!-- STEP 2 JdbcTemplate bean" -->
-	<bean class="org.springframework.jdbc.core.JdbcTemplate"
-		name="jdbcTemplate" p:dataSource-ref="dso">
-		<!-- <property name="dataSource"> -->
-		<!-- <ref bean="dso"/> -->
-		<!-- </property> -->
-	</bean>
-
-
-	<bean id="transactionManager"
-		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<property name="dataSource" ref="dso" />
-	</bean>
-
-
-	<bean class="com.spring.jdbc.intro.StudentDAOImpl"
-		name="studentDAO" p:jdbc-ref="jdbcTemplate" />
-
-	<bean id="transactionManager"
-		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-		<property name="dataSource" ref="dso" />
-	</bean>
-
+    <bean class="com.spring.jdbc.intro.StudentDAOImpl"
+          name="studentDAO" p:jdbc-ref="jdbcTemplate"/>
 
 </beans>

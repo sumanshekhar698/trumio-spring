@@ -11,26 +11,26 @@
 
 
 	<bean class="com.spring.core.auto_wire.xml.Address"
-		name="address1" p:street="Sarojni" p:city="Delhi" p:pin="700107" />
+		name="address1" p:street="Sarojni" p:city="Delhi" p:pin="700107"/>
 		
 	<bean class="com.spring.core.auto_wire.xml.Address" name="address"
 		p:street="Doranda" p:city="Ranchi" p:pin="800107" />
 
 	<!-- we will use auto-wiring here -->
-	<!-- 1) it will search for name "address" in existing bean -->
-	<!-- so it need to be taken care while matching -->
+	<!-- 1) it will search for the name "address" in the existing bean -->
+	<!-- so it needs to be taken care of while matching -->
 	<bean class="com.spring.core.auto_wire.xml.Worker" name="w1"
-		autowire="byName" />
+		autowire="constructor" />
 
 	<!-- autowire="byType" -->
-	<!-- when using byType ensure only 1 type matches otherwise Exception will 
+	<!-- when using byType ensure only 1 type matches; otherwise Exception will
 		be thrown because of Ambiguity -->
 
 	<!-- autowire="byName" -->
 
 	<!-- autowire="constructor" -->
 	<!-- for all the technique other than constructor, setter injection will 
-		be involved , also constructor injection also check name for injecting -->
+		be involved, also constructor injection also check name for injecting -->
 
 
 </beans>

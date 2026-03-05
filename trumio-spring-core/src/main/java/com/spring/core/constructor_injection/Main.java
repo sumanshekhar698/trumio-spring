@@ -5,21 +5,27 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Main {
 
-	public static void main(String[] args) {
-		ApplicationContext context = new ClassPathXmlApplicationContext("bean_configs/ci_config_1.xml",
-				"bean_configs/ci_config_2.xml");
-		Person p1 = (Person) context.getBean("person1");
-		Person p2 = (Person) context.getBean("person2");
-		System.out.println(p1);
-		System.out.println(p2);
-		System.out.println();
+    public static void main(String[] args) {
+        ApplicationContext context = new ClassPathXmlApplicationContext(
+                "bean_configs/ci_config_1.xml",
+                "bean_configs/ci_config_2.xml");
 
-		// Ambiguity Issue
+        Object p0 = context.getBean("person1");
+        if (p0 instanceof Person) {
+			// your code here
+        }
+        Person p1 = (Person) context.getBean("person1");
+        Person p2 = (Person) context.getBean("person2");
+        System.out.println(p1);
+        System.out.println(p2);
+        System.out.println();
+
+        // Ambiguity Issue
 //		Addition a1 = (Addition) context.getBean("add");
 //		a1.doSum();
-	}
+    }
 
-	void call(String... args) {
+    void call(String... args) {
 
-	}
+    }
 }

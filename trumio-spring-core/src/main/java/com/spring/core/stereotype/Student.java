@@ -7,8 +7,8 @@ import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 @Component("s1") // Don't use student, use s1
-@Scope("singleton")
-//@Scope("prototype")
+//@Scope("singleton")
+@Scope("prototype")
 public class Student {
 	@Value("Suman Shekhar")
 	private String studentName;

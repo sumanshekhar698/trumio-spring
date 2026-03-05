@@ -11,8 +11,12 @@
 
 
 	<properties>
+		<maven.compiler.source>21</maven.compiler.source>
+		<maven.compiler.target>21</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
 
-		<spring.version>6.2.11</spring.version>
+
+		<spring.version>6.2.16</spring.version>
 		<hibernate.version>6.6.40.Final</hibernate.version>
 		<mysql.version>8.3.0</mysql.version>
 		<jakarta.persistence.version>3.2.0</jakarta.persistence.version>
@@ -23,9 +27,7 @@
 		<javax.cache.version>1.1.1</javax.cache.version>
 		<caffeine.version>3.1.8</caffeine.version>
 
-		<maven.compiler.source>25</maven.compiler.source>
-		<maven.compiler.target>25</maven.compiler.target>
-		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
 	</properties>
 
 

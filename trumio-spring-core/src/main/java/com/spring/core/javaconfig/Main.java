@@ -14,12 +14,20 @@ public class Main {
 //		System.out.println(s1);
 //		context.close();
 
-		ApplicationContext context = new AnnotationConfigApplicationContext(JavaConfig.class);
+		ApplicationContext context = new AnnotationConfigApplicationContext(
+				JavaConfig.class);
 		Student s1 = context.getBean("stud", Student.class);
 		// by default its method name but we can call it via specified names too in the
 		// names array
 		System.out.println(s1);
 		s1.study();
+
+
+		Samosa sam = context.getBean("getSamosa", Samosa.class);
+		// by default its method name but we can call it via specified names too in the
+		// names array
+		System.out.println(sam);
+		sam.order();
 
 	}
 

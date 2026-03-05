@@ -26,14 +26,12 @@
 	</bean>
 
 
-	<!-- this is our 2nd bean using inline property tag -->
+	<!-- this is our 2nd bean using the inline property tag -->
 	<bean class="com.spring.core.simple_di.Student" name="student2">
 		<property name="studentId" value="6058" />
 		<property name="studentName">
 			<value>Suphlay</value>
 		</property>
-
-
 		<property name="studentAddress">
 			<value>Kolkata</value>
 		</property>

@@ -7,6 +7,6 @@ import org.springframework.stereotype.Component;
 @Scope("prototype")// Scope is prototype, the Loading is Lazy by default
 
 public class PrototypeBean {
-    public PrototypeBean() { System.out.println("Prototype  Created!"); }
+    public PrototypeBean() { System.out.println("PrototypeBean  Created!"); }
 }
 

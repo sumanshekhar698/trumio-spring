@@ -55,7 +55,7 @@
 			<props>
 				<prop key="gender">male</prop>
 				<prop key="age">24</prop>
-				<prop key="passportAvailbility">YES</prop>
+				<prop key="passportAvailability">YES</prop>
 			</props>
 		</property>
 
