@@ -46,6 +46,7 @@ public class Main {
         System.out.println("Is the Bean Scope Singleton ?" + context.isSingleton("student1"));
 
 
+//        By Deafult Spring follows Singleton Scope for Bean and the behaviors are Eager Loading
         Student s1Bean = (Student) context.getBean("student1");
         System.out.println(s1Bean);
         System.out.println(s1Bean.hashCode());

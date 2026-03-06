@@ -15,9 +15,17 @@ public class Main {
 		
 		SpelExpressionParser spell = new SpelExpressionParser();
 
-//		No  when using SpelExpressionParser class
-		Expression expression = spell.parseExpression("0>=1 ? true:false");// Expression Evaluation tester
-		System.out.println(expression.getValue());
+//		When you use the SpelExpressionParser directly in Java code, it expects a raw expression. The symbols #{ } are
+//		delimiters used by Spring (specifically in @Value or XML configurations) to separate
+//		SpEL from literal text. Inside your Java code,
+//		the parser sees the # as invalid and { as optional tokens because
+//		they aren't part of the SpEL syntax itself.
+
+//		Expression expression1 = spell.parseExpression("#{T(java.lang.Math).sqrt(169)}");// Expression Evaluation tester
+		Expression expression2 = spell.parseExpression("{T(java.lang.Math).sqrt(169)}");// Expression Evaluation tester
+		Expression expression3 = spell.parseExpression("T(java.lang.Math).sqrt(169)");// Expression Evaluation tester
+		System.out.println(expression2.getValue());
+		System.out.println(expression3.getValue());
 
 	}
 

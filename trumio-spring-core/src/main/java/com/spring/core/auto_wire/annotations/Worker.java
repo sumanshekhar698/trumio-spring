@@ -18,7 +18,7 @@ public class Worker {
     }
 
     //    @Autowired
-//    @Qualifier("permanent")//setter gets priority over properties
+//    @Qualifier("current")//setter gets priority over properties injection
     public void setAddress(Address address) {
         System.out.println("Setters used for injection");
         this.address = address;
@@ -35,10 +35,10 @@ public class Worker {
 
     }
 
-//    @Autowired
+    @Autowired
 //	@Qualifier("permanent")// not allowed in Constructors
-//    public Worker(@Qualifier("permanent") Address address) {
-    public Worker(Address address) {
+    public Worker(@Qualifier("permanent") Address address) {
+//    public Worker(Address address) {
         super();
         System.out.println("Parameterized constructor is used for injection");
         this.address = address;

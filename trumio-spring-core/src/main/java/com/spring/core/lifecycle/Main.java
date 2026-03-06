@@ -11,8 +11,9 @@ public class Main {
 		AbstractApplicationContext context = new ClassPathXmlApplicationContext("bean_configs/lifecycle_config.xml");
 
 		context.registerShutdownHook();
-// 		Registering shutdown hook when you have to destroy object call the hooked-> destroy method()
+// 		Registering a shutdown hook when you have to destroy an object call the hooked-> destroy method()
 
+		System.out.println();
 		Samosa s1 = (Samosa) context.getBean("s1");
 		System.out.println(s1);
 

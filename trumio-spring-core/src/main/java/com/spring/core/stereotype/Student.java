@@ -8,44 +8,46 @@ import org.springframework.stereotype.Component;
 
 @Component("s1") // Don't use student, use s1
 //@Scope("singleton")
-@Scope("prototype")
+@Scope("prototype")//it's Lazy by default
 public class Student {
-	@Value("Suman Shekhar")
-	private String studentName;
-	@Value("Bangalore")
-	private String city;
-	@Value("#{course}") // Field Injection :: Reflection
-	private List<String> courses;
+    @Value("Suman Shekhar")
+    private String studentName;
+    @Value("Bangalore")
+    private String city;
+    @Value("#{course}") // Field Injection :: Reflection
+    private List<String> courses;
 
-	public String getStudentName() {
-		return studentName;
-	}
+    public String getStudentName() {
+        return studentName;
+    }
 
-	public void setStudentName(String studentName) {
-		this.studentName = studentName;
-	}
+    public void setStudentName(String studentName) {
+        this.studentName = studentName;
+        System.out.println("Setting studentName via Setter Injection!");
+    }
 
-	@Override
-	public String toString() {
-		return "Student [studentName=" + studentName + ", city=" + city + ", courses=" + courses + "]";
-	}
+    @Override
+    public String toString() {
+        return "Student [studentName=" + studentName + ", city=" + city + ", courses=" + courses + "]";
+    }
 
-	public String getCity() {
-		return city;
-	}
+    public String getCity() {
+        return city;
+    }
 
-	public List<String> getCourses() {
-		return courses;
-	}
+    public List<String> getCourses() {
+        return courses;
+    }
 
-//	@Value("#{course}") // Spring now calls this method to inject the value
-//	public void setCourses(List<String> courses) {
-//	    System.out.println("Setting courses via Setter Injection!");
-//	    this.courses = courses;
-//	}
+    //	@Value("#{course}") // Spring now calls this method to inject the value
+    public void setCourses(List<String> courses) {
+        System.out.println("Setting courses via Setter Injection!");
+        this.courses = courses;
+    }
 
-	public void setCity(String city) {
-		this.city = city;
-	}
+    public void setCity(String city) {
+        this.city = city;
+        System.out.println("Setting city via Setter Injection!");
+    }
 
 }

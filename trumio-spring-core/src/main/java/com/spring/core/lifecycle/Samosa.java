@@ -22,10 +22,12 @@ public class Samosa {
 		return "Samosa [price=" + price + "]";
 	}
 
+	// I want this init fn to be triggered after bean creation
 	public void init() {
 		System.out.println("INIT Samosa via xml");
 	}
 
+	// I want this destroy fn to be triggered bean object deletion
 	public void destroy() {
 		System.out.println("DESTROY Samosa via xml");
 	}

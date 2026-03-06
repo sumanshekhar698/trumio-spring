@@ -22,7 +22,7 @@ public class Worker {
 
     public Worker() {
         super();
-        System.out.println("Parameterless constructor is used for injection");
+        System.out.println("Parameterless constructor was called");
     }
 
     public Worker(Address address) {
