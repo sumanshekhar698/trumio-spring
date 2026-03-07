@@ -18,7 +18,7 @@ public class Main {
 //                JavaConfig.class);
         AnnotationConfigApplicationContext context = new AnnotationConfigApplicationContext();
         // 1. Get the environment and set an active profile
-        context.getEnvironment().setActiveProfiles("dev");
+        context.getEnvironment().setActiveProfiles("prod");
         // 2. Register the config class
         context.register(JavaConfig.class);
         // 3. Refresh to start the container

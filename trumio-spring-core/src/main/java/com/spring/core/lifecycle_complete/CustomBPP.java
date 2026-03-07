@@ -1,4 +1,4 @@
-package com.spring.core.lifecycle.lifespan;
+package com.spring.core.lifecycle_complete;
 
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.stereotype.Component;

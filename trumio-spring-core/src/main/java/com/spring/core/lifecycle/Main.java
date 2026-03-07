@@ -5,29 +5,30 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class Main {
 
-	public static void main(String[] args) {
+    public static void main(String[] args) {
 
 //		ApplicationContext
-		AbstractApplicationContext context =
-				new ClassPathXmlApplicationContext("bean_configs/lifecycle_config.xml");
+        AbstractApplicationContext context =
+                new ClassPathXmlApplicationContext("bean_configs/lifecycle_config.xml");
 
-		context.registerShutdownHook();
+        context.registerShutdownHook();
 // 		Registering a shutdown hook when you have to destroy an object call the hooked-> destroy method()
 
-		System.out.println();
-		Samosa s1 = (Samosa) context.getBean("s1");
-		System.out.println(s1);
+        System.out.println();
+        Samosa s1 = (Samosa) context.getBean("s1");
+        System.out.println(s1);
 
-		CocaCola c1 = (CocaCola) context.getBean("c1");
-		System.out.println(c1);
+        CocaCola c1 = (CocaCola) context.getBean("c1");
+        System.out.println(c1);
 
-		BreadToast b1 = (BreadToast) context.getBean("b1");
-		System.out.println(b1);
+        BreadToast b1 = (BreadToast) context.getBean("b1");
+        System.out.println(b1);
 
-//		The order of destroy for beans may differ but 
-//		individual order of every beans is setting->init->destroy
+//		The order of the destroy function for beans may differ, but
+//		 the individual order of every bean is
+//		 setting -> postProcessBeforeInitialization -> init -> postProcessAfterInitialization -> destroy
 
-		context.close();
-	}
+        context.close();
+    }
 
 }

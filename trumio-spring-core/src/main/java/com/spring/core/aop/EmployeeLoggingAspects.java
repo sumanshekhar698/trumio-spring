@@ -14,7 +14,8 @@ public class EmployeeLoggingAspects {
 
     1. Aspect: The class containing the code you want to inject (e.g., a Logger).
     2. Advice: The specific action taken (e.g., "do this before the method runs").
-    3. Pointcut: The "where"—a filter that tells Spring which methods should get this code.*/
+    3. Pointcut: The "where"—a filter that tells Spring which methods should be targeted.
+    */
 
 
 //    In Spring AOP, these two methods are called Advices, and the string inside

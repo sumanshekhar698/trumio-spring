@@ -17,7 +17,7 @@ import org.springframework.context.annotation.*;
 public class JavaConfig {
 
     //	using w/o declaring @Component on the class
-    @Bean
+    @Bean// By Default, the Bean name is getStudent
     public Student getStudent() {
         return new Student();
     }
@@ -44,10 +44,12 @@ public class JavaConfig {
     }
 
 
+    @Primary
     @Bean(name = {"paneerSamosa"})
     public Samosa getSamosaPaneerFlavoured() {
         return new Samosa("Paneer");
     }
+
 
 
     @Bean

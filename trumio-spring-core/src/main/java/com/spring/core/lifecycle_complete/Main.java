@@ -1,4 +1,4 @@
-package com.spring.core.lifecycle.lifespan;
+package com.spring.core.lifecycle_complete;
 
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -12,6 +12,10 @@ public class Main {
         
         PaymentService service = context.getBean(PaymentService.class);
         service.processPayment(100.0);
+
+        System.out.println();
+        service.processPayment(200.0);
+
 
         context.close();
     }

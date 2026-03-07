@@ -32,6 +32,8 @@ public class MyFileReader {
                     System.out.println("Content: " + content);
                     System.out.println("------------------------------------------");
                 }
+            }else {
+                System.out.println("File does not exist or is not readable!");
             }
 
 

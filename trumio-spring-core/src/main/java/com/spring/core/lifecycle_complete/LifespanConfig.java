@@ -1,11 +1,11 @@
-package com.spring.core.lifecycle.lifespan;
+package com.spring.core.lifecycle_complete;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.EnableAspectJAutoProxy;
 
 @Configuration
-@ComponentScan(basePackages = "com.spring.core.lifecycle.lifespan")
+@ComponentScan(basePackages = "com.spring.core.lifecycle_complete")
 @EnableAspectJAutoProxy // CRITICAL: This allows AOP Proxies to be created in the BPP phase
 public class LifespanConfig {
     /* Since we are using @Component on our Service, BPP, and Aspect, 
