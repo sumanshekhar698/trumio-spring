@@ -8,7 +8,7 @@ public class AtmService {
         if (amount > 1000) {
             throw new Exception("DAILY_LIMIT_EXCEEDED");
         }
-        System.out.println("Processing $" + amount);
+        System.out.println(">> Processing $" + amount);
         return amount;
     }
 }

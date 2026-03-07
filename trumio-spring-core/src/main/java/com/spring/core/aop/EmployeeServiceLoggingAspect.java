@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 @Aspect
 @Component
-public class EmployeeLoggingAspects {
+public class EmployeeServiceLoggingAspect {
 
     /*The Core Concepts
 

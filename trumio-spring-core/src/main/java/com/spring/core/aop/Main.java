@@ -8,7 +8,6 @@ public class Main {
 
     public static void main(String[] args) throws Exception {
 
-
         ApplicationContext context = new AnnotationConfigApplicationContext(
                 JavaConfig.class);
 //        EmployeeService employeeService = context.getBean("employeeService", EmployeeService.class);
@@ -22,8 +21,7 @@ public class Main {
         atmService.withdraw(1234, 100.0);
 
         System.out.println();
-        atmService.withdraw(1235, 10000.0);
-
+        atmService.withdraw(12, 5000.0);
 
         System.out.println("END");
 
