@@ -8,7 +8,8 @@ import org.springframework.stereotype.Component;
 public class CustomBeanProcessor implements BeanPostProcessor {
 
 
-    /*postProcessBeforeInitialization: Called after the bean is created and its dependencies are injected
+    /*postProcessBeforeInitialization: Called after the bean is created and
+    its dependencies are injected
      (via setter/field), but before any custom init() or @PostConstruct methods run.*/
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {

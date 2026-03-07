@@ -8,7 +8,8 @@ public class Main {
 	public static void main(String[] args) {
 
 //		ApplicationContext
-		AbstractApplicationContext context = new ClassPathXmlApplicationContext("bean_configs/lifecycle_config.xml");
+		AbstractApplicationContext context =
+				new ClassPathXmlApplicationContext("bean_configs/lifecycle_config.xml");
 
 		context.registerShutdownHook();
 // 		Registering a shutdown hook when you have to destroy an object call the hooked-> destroy method()

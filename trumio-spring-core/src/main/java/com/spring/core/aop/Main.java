@@ -14,8 +14,8 @@ public class Main {
         EmployeeService employeeService = context.getBean("employeeService", EmployeeService.class);
         employeeService.addEmployee("Alice");
 
-        AtmService atmService = context.getBean("atmService", AtmService.class);
-        atmService.withdraw(1234, 100.0);
+//        AtmService atmService = context.getBean("atmService", AtmService.class);
+//        atmService.withdraw(1234, 100.0);
 
         System.out.println("END");
 
