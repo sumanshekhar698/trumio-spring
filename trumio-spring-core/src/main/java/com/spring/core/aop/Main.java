@@ -18,10 +18,10 @@ public class Main {
 //        employeeService.addEmployee("Johny");
 
         AtmService atmService = context.getBean("atmService", AtmService.class);
-        atmService.withdraw(1234, 100.0);
+//        atmService.withdraw(1234, 100.0);
 
         System.out.println();
-        atmService.withdraw(12, 5000.0);
+        atmService.withdraw(12, 900.0);
 
         System.out.println("END");
 
