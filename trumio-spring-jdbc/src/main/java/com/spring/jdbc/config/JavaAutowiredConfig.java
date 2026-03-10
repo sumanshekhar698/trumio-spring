@@ -19,7 +19,7 @@ public class JavaAutowiredConfig {
     private String driver;
     @Value("${db.url}")
     private String url;
-    @Value("${db.username}")
+    @Value("${db.user}")
     private String user;
     @Value("${db.password}")
     private String pass;

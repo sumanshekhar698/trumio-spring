@@ -1,4 +1,4 @@
-package com.spring.jdbc;
+package com.spring.jdbc.runners;
 
 import java.sql.PreparedStatement;
 import java.sql.Timestamp;

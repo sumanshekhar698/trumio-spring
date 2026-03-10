@@ -21,7 +21,7 @@ public class JavaConfig {
 	@Value("${db.url}")
 	private String url;
 
-	@Value("${db.username}")
+	@Value("${db.user}")
 	private String user;
 
 	@Value("${db.password}")

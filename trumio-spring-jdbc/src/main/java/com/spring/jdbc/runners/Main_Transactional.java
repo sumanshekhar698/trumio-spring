@@ -1,8 +1,7 @@
-package com.spring.jdbc;
+package com.spring.jdbc.runners;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-import org.springframework.jdbc.core.JdbcTemplate;
 
 import com.spring.jdbc.dao.StudentDAO;
 

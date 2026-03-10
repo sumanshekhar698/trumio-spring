@@ -24,6 +24,7 @@ public class StudentDAOImp1 implements StudentDAO {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
+//	@Autowired
 	// This matches the p:namedJdbcTemplate-ref in XML
 	private NamedParameterJdbcTemplate namedJdbcTemplate;
 
@@ -126,7 +127,7 @@ public class StudentDAOImp1 implements StudentDAO {
 
 		// 2. Simulate a Syntax Error or Business Logic Failure
 		// This will trigger the BadSqlGrammarException you saw earlier
-		jdbcTemplate.update("INSERT INTO non_existent_table VALUES ('error')");//Exception
+		jdbcTemplate.update("INSERT INTO suman_table VALUES ('error')");//Exception
 
 		// 3. Update the second student
 		jdbcTemplate.update("UPDATE student SET city = 'RECEIVED' WHERE id = ?", toId);
