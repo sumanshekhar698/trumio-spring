@@ -8,6 +8,7 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.PropertySource;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 
 @Configuration
@@ -37,7 +38,24 @@ public class JavaAutowiredConfig {
     @Bean("jdbcTemplate")
     // Note: Passing 'DataSource ds' as a parameter tells Spring to inject the bean 
     // instead of you calling the method manually.
-    public JdbcTemplate getTemplate(DataSource ds) { 
+    public JdbcTemplate getTemplate(DataSource ds) {
         return new JdbcTemplate(ds);
+    }
+
+    @Bean("ds")
+    public DataSource dataSource() {
+        DriverManagerDataSource ds = new DriverManagerDataSource();
+        ds.setDriverClassName(driver.trim());
+        ds.setUrl(url);
+        ds.setUsername(user);
+        ds.setPassword(pass);
+        return ds;
+    }
+
+
+    @Bean
+    public NamedParameterJdbcTemplate namedParameterJdbcTemplate(DataSource ds) {
+        // This is the "big brother" of JdbcTemplate used for :namedParams
+        return new NamedParameterJdbcTemplate(ds);
     }
 }

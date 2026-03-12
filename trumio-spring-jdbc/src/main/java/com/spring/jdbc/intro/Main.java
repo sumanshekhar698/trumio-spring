@@ -32,12 +32,14 @@ public class Main {
         }
 
 
-//		SELECT All
+//		SELECT All LIMITED
         System.out.println();
         List<Student> multipleStudent = dao.getMultipleStudent();
         for (Student student : multipleStudent) {
             System.out.println(student);
         }
+
+        System.out.println(dao.getAllStudents());
 
 //		DELETE
         int delete = dao.delete(101);

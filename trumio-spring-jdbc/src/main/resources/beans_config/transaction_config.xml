@@ -50,7 +50,7 @@ http://www.springframework.org/schema/tx/spring-tx.xsd">
         <constructor-arg ref="dso"/>
     </bean>
 
-    <bean class="com.spring.jdbc.dao.StudentDAOImp1" name="studentDAO"
+    <bean class="com.spring.jdbc.dao.StudentDAOImpl" name="studentDAO"
           p:jdbcTemplate-ref="jdbcTemplate"
           p:namedJdbcTemplate-ref="namedJdbcTemplate"/>
 </beans>

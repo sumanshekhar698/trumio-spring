@@ -5,6 +5,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 import com.spring.jdbc.entities.StudentVersioned;
+import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
@@ -60,6 +61,18 @@ public class StudentDAOImpl implements StudentDAO {
 
         List<Student> students = this.jdbcTemplate.query(query, rm);
         return students;
+    }
+
+
+    //If your database column names (id, name, city, version) match your Java field names exactly,
+    // Spring can do the mapping for you automatically.
+    @Override
+    public List<StudentVersioned> getAllStudents() {
+        String sql = "SELECT * FROM STUDENT";
+
+        // Spring maps columns to setters automatically
+        // This requires a default no-args constructor in your POJO (e.g., public StudentVersioned() {}).
+        return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(StudentVersioned.class));
     }
 
     @Override

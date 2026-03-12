@@ -14,6 +14,9 @@ public class StudentVersioned {// POJO
         this.version = version;
     }
 
+    public StudentVersioned() {
+    }
+
     public int getId() {
         return id;
     }

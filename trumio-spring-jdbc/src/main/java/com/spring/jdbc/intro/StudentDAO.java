@@ -14,6 +14,8 @@ public interface StudentDAO {//DAO = Data Access Object
 
 	public List<Student> getMultipleStudent();// R
 
+	List<StudentVersioned> getAllStudents();
+
 	public int change(Student student);// U
 
 	public int delete(int sId);// D

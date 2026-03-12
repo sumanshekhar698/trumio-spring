@@ -5,7 +5,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import com.spring.jdbc.dao.StudentDAO;
 
-public class Main_Transactional {
+public class MainTransactions {
 
 	public static void main(String[] args) {
 		System.out.println("START of main()");
