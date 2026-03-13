@@ -1,4 +1,4 @@
-package com.spring.jdbc.intro;
+package com.spring.jdbc.simple;
 
 import java.util.List;
 import java.util.Map;

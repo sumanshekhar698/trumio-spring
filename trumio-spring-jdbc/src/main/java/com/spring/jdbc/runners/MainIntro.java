@@ -3,7 +3,7 @@ package com.spring.jdbc.runners;
 import java.util.List;
 
 import com.spring.jdbc.entities.StudentVersioned;
-import com.spring.jdbc.intro.StudentSimpleDAOImpl;
+import com.spring.jdbc.simple.StudentSimpleDAOImpl;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.dao.DuplicateKeyException;
