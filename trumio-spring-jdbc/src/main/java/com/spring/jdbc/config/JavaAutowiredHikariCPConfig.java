@@ -79,7 +79,6 @@ public class JavaAutowiredHikariCPConfig {
 
     @Bean
     public NamedParameterJdbcTemplate namedParameterJdbcTemplate(DataSource ds) {
-        // This is the "big brother" of JdbcTemplate used for :namedParams
         return new NamedParameterJdbcTemplate(ds);
     }
 }
