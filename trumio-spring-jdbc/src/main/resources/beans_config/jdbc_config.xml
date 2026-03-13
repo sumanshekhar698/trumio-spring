@@ -37,7 +37,7 @@
         <property name="dataSource" ref="dso"/>
     </bean>
 
-    <bean class="com.spring.jdbc.intro.StudentDAOImpl"
+    <bean class="com.spring.jdbc.intro.StudentSimpleDAOImpl"
           name="studentDAO" p:jdbcTemplate-ref="jdbcTemplate"/>
 
 

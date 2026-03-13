@@ -1,8 +1,9 @@
-package com.spring.jdbc.intro;
+package com.spring.jdbc.runners;
 
 import java.util.List;
 
 import com.spring.jdbc.entities.StudentVersioned;
+import com.spring.jdbc.intro.StudentSimpleDAOImpl;
 import org.springframework.context.support.AbstractApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.dao.DuplicateKeyException;
@@ -10,13 +11,13 @@ import org.springframework.dao.EmptyResultDataAccessException;
 
 import com.spring.jdbc.entities.Student;
 
-public class Main {
+public class MainIntro {
 
     public static void main(String[] args) {
         System.out.println("START <<");
         AbstractApplicationContext context = new ClassPathXmlApplicationContext(
                 "beans_config/jdbc_config.xml");
-        StudentDAOImpl dao = context.getBean("studentDAO", StudentDAOImpl.class);
+        StudentSimpleDAOImpl dao = context.getBean("studentDAO", StudentSimpleDAOImpl.class);
 
         int sId = 1;
 //		SELECT

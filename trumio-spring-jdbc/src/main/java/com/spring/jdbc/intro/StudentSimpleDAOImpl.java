@@ -13,7 +13,7 @@ import org.springframework.jdbc.core.*;
 
 import com.spring.jdbc.entities.Student;
 
-public class StudentDAOImpl implements StudentDAO {
+public class StudentSimpleDAOImpl implements StudentSimpleDAO {
     private JdbcTemplate jdbcTemplate;
 
     public JdbcTemplate getJdbcTemplate() {

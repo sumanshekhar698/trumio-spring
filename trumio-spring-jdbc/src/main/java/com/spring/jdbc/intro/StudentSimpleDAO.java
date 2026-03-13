@@ -7,7 +7,7 @@ import com.spring.jdbc.entities.Student;
 import com.spring.jdbc.entities.StudentVersioned;
 
 //CRUD operation
-public interface StudentDAO {//DAO = Data Access Object
+public interface StudentSimpleDAO {//DAO = Data Access Object
 
     public int insert(Student student);// C
 
