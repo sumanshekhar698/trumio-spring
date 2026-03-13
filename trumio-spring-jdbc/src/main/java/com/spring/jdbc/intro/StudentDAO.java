@@ -1,6 +1,7 @@
 package com.spring.jdbc.intro;
 
 import java.util.List;
+import java.util.Map;
 
 import com.spring.jdbc.entities.Student;
 import com.spring.jdbc.entities.StudentVersioned;
@@ -8,17 +9,25 @@ import com.spring.jdbc.entities.StudentVersioned;
 //CRUD operation
 public interface StudentDAO {//DAO = Data Access Object
 
-	public int insert(Student student);// C
+    public int insert(Student student);// C
 
-	public Student getSingleStudent(int sId);// R
+    int insertTypeSafe(Student student);// C
 
-	public List<Student> getMultipleStudent();// R
+    int insertVersioned(StudentVersioned student);// C
 
-	List<StudentVersioned> getAllStudents();
+    public Student getSingleStudent(int sId);// R
 
-	public int change(Student student);// U
+    public List<Student> getMultipleStudent();// R
 
-	public int delete(int sId);// D
+    List<StudentVersioned> getAllStudents();// R
 
-	int insertVersioned(StudentVersioned student);
+    Map<Integer, StudentVersioned> getAllStudentsAsMap();// R
+
+    public int update(Student student);// U
+
+    int updateWithVersion(StudentVersioned student);// U
+
+    public int delete(int sId);// D
+
+
 }

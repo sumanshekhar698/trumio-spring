@@ -1,15 +1,19 @@
 package com.spring.jdbc.dao;
 
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Types;
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 
+import com.spring.jdbc.entities.StudentVersioned;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BatchPreparedStatementSetter;
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowCallbackHandler;
 import org.springframework.jdbc.core.RowMapper;
 import org.springframework.jdbc.core.namedparam.MapSqlParameterSource;
 import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
@@ -76,6 +80,32 @@ public class StudentDAOImpl implements StudentDAO {
         RowMapper<Student> rowMapper = new StudentEntityRowMapper();
         List<Student> students = this.jdbcTemplate.query(query, rowMapper);
         return students;
+    }
+
+    @Override
+    public List<StudentVersioned> getStudentsStreamed() {
+        // 1. Tell MySQL to stream one row at a time
+        jdbcTemplate.setFetchSize(Integer.MIN_VALUE);
+
+        String sql = "SELECT * FROM STUDENT";
+        List<StudentVersioned> studentList = new ArrayList<>();
+
+        jdbcTemplate.query(sql, new RowCallbackHandler() {
+            @Override
+            public void processRow(ResultSet rs) throws SQLException {
+                // Map the current row to a POJO
+                StudentVersioned student = new StudentVersioned();
+                student.setId(rs.getInt("id"));
+                student.setName(rs.getString("name"));
+                student.setCity(rs.getString("city"));
+                student.setVersion(rs.getInt("version"));
+
+                // Add to the list
+                studentList.add(student);
+            }
+        });
+
+        return studentList;
     }
 
     @Override

@@ -9,7 +9,6 @@
     </parent>
     <artifactId>trumio-spring-jdbc</artifactId>
 
-
     <dependencies>
         <dependency>
             <groupId>jakarta.annotation</groupId>
@@ -31,6 +30,13 @@
             <groupId>com.mysql</groupId>
             <artifactId>mysql-connector-j</artifactId>
             <version>${mysql.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.zaxxer</groupId>
+            <artifactId>HikariCP</artifactId>
+            <version>${hikari.cp}</version>
+            <scope>compile</scope>
         </dependency>
 
         <dependency>

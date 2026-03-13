@@ -30,6 +30,7 @@ public class Main {
         } catch (Exception e) {
             System.out.println(e);
         }
+        System.out.println();
 
 
 //		SELECT All LIMITED
@@ -38,16 +39,25 @@ public class Main {
         for (Student student : multipleStudent) {
             System.out.println(student);
         }
+        System.out.println();
 
+//		SELECT All STUDENTS
         System.out.println(dao.getAllStudents());
+        System.out.println();
+
+//		SELECT AS A MAP
+        System.out.println(dao.getAllStudentsAsMap());
+        System.out.println();
 
 //		DELETE
         int delete = dao.delete(101);
         System.out.println("DELETED ==> " + delete);
+        System.out.println();
 
 //		UPDATE
-        int change = dao.change(new Student(1, "Balwinder", "LA"));
+        int change = dao.update(new Student(1, "Balwinder", "LA"));
         System.out.println("UPDATED ==> " + change);
+        System.out.println();
 
 //		CREATE
         try {

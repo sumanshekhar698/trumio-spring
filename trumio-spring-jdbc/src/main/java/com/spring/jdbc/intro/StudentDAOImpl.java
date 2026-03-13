@@ -2,12 +2,14 @@ package com.spring.jdbc.intro;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Types;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import com.spring.jdbc.entities.StudentVersioned;
-import org.springframework.jdbc.core.BeanPropertyRowMapper;
-import org.springframework.jdbc.core.JdbcTemplate;
-import org.springframework.jdbc.core.RowMapper;
+import org.springframework.dao.DataAccessException;
+import org.springframework.jdbc.core.*;
 
 import com.spring.jdbc.entities.Student;
 
@@ -75,11 +77,67 @@ public class StudentDAOImpl implements StudentDAO {
         return jdbcTemplate.query(sql, new BeanPropertyRowMapper<>(StudentVersioned.class));
     }
 
+
+// ... inside your StudentDAOImpl class ...
+
     @Override
-    public int change(Student student) {// U
+    public Map<Integer, StudentVersioned> getAllStudentsAsMap() {
+        String query = "SELECT * FROM STUDENT";
+
+        // ResultSetExtractor gives us the WHOLE result set to iterate ourselves
+        return this.jdbcTemplate.query(query,
+                new ResultSetExtractor<Map<Integer, StudentVersioned>>() {
+
+                    @Override
+                    public Map<Integer, StudentVersioned> extractData(ResultSet rs) throws SQLException, DataAccessException {
+                        Map<Integer, StudentVersioned> studentMap = new HashMap<>();
+
+                        // We manage the loop manually here
+                        while (rs.next()) {
+                            StudentVersioned s = new StudentVersioned();
+                            s.setId(rs.getInt("ID"));
+                            s.setName(rs.getString("NAME"));
+                            s.setCity(rs.getString("CITY"));
+                            s.setVersion(rs.getInt("VERSION"));
+
+                            // Logic: Mapping by ID for quick lookup in the service layer
+                            studentMap.put(s.getId(), s);
+                        }
+                        return studentMap;
+                    }
+                });
+
+    }
+
+    @Override
+    public int update(Student student) {// U
         String query = "UPDATE STUDENT SET NAME=? , CITY=? WHERE ID=?";
-        int update = this.jdbcTemplate.update(query, student.getName(), student.getCity(), student.getId());
-        return update;
+//        int update = this.jdbcTemplate.update(query, student.getName(), student.getCity(), student.getId());
+//        return update;
+
+        // Using ArgPreparedStatementSetter to tweak guessing
+        return jdbcTemplate.update(query,
+                new Object[]{student.getName(), student.getCity(), student.getId()},
+                new int[]{java.sql.Types.VARCHAR, java.sql.Types.VARCHAR, java.sql.Types.INTEGER}
+        );
+
+    }
+
+    @Override
+    public int updateWithVersion(StudentVersioned student) {
+        String query = "UPDATE STUDENT SET NAME=?, CITY=?, VERSION = VERSION + 1 " +
+                "WHERE ID=? AND VERSION=?";
+
+        int updatedRows = this.jdbcTemplate.update(query,
+                student.getName(),
+                student.getCity(),
+                student.getId(),
+                student.getVersion());
+
+        if (updatedRows == 0) {
+            throw new RuntimeException("Update failed: Data was modified by another user (Optimistic Lock Failure)");
+        }
+        return updatedRows;
     }
 
     @Override
@@ -94,8 +152,28 @@ public class StudentDAOImpl implements StudentDAO {
         String query = "INSERT INTO STUDENT(ID,NAME,CITY) VALUES(?,?,?)";// ? = place holder
         int update = this.jdbcTemplate.update(query, student.getId(), student.getName(), student.getCity());
         return update;
+
     }
 
+
+    @Override
+    public int insertTypeSafe(Student student) {
+//        String query = "INSERT INTO STUDENT(ID, NAME, CITY) VALUES(?, ?, ?)";
+
+        // If student.getCity() is null, the DB will insert 'Unknown' instead
+        String query = "INSERT INTO STUDENT(ID, NAME, CITY) VALUES(?, ?, COALESCE(?, 'Unknown'))";
+
+        // Explicitly defining types for each parameter
+        int update = this.jdbcTemplate.update(
+                query,
+                new SqlParameterValue(Types.INTEGER, student.getId()),
+                // If name is null, Spring sends it as a NULL VARCHAR
+                new SqlParameterValue(Types.VARCHAR, student.getName()),
+                new SqlParameterValue(Types.VARCHAR, student.getCity())
+        );
+
+        return update;
+    }
 
     @Override
     public int insertVersioned(StudentVersioned student) {// C

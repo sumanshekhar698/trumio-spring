@@ -21,6 +21,8 @@
 		<jakarta.el.version>5.0.0-M1</jakarta.el.version>
 
 		<mysql.version>8.3.0</mysql.version>
+		<hikari.cp>7.0.2</hikari.cp>
+
 		<jakarta.persistence.version>3.2.0</jakarta.persistence.version>
 		<jakarta.annotation.version>3.0.0</jakarta.annotation.version>
 		<opencsv.version>5.12.0</opencsv.version>
