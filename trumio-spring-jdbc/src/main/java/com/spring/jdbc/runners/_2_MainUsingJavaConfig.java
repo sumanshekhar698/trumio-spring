@@ -1,6 +1,5 @@
 package com.spring.jdbc.runners;
 
-import java.util.Arrays;
 import java.util.List;
 
 import org.springframework.context.ApplicationContext;
@@ -10,7 +9,7 @@ import com.spring.jdbc.config.JavaConfig;
 import com.spring.jdbc.dao.StudentDAO;
 import com.spring.jdbc.entities.Student;
 
-public class MainUsingJavaConfig {
+public class _2_MainUsingJavaConfig {
 	public static void main(String[] args) {
 		System.out.println("START of main()");
 

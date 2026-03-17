@@ -9,7 +9,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 import com.spring.jdbc.config.JavaAutowiredConfig;
 import com.spring.jdbc.entities.Student;
 
-public class MainUsingAutowiring {
+public class _3_MainUsingAutowiring {
     public static void main(String[] args) {
         System.out.println("START of main()");
 

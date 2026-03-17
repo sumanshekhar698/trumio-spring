@@ -33,13 +33,15 @@ public class StudentDaoImpl implements StudentDao {
 	@Transactional(readOnly = true)
 	public List<Student> getStudentsByCity(String city) {
 		// This is the equivalent of a @Query("from Student where city = :c")
-		return sessionFactory.getCurrentSession().createQuery("from Student where city = :c", Student.class)
+		return sessionFactory.getCurrentSession().
+				createQuery("from Student where city = :c", Student.class)
 				.setParameter("c", city).getResultList();
 	}
 
 	// 3. READ ALL
 	@Transactional(readOnly = true)
 	public List<Student> getAllStudents() {
+//		from Student :: HQL (Hibernate Query Language)
 		return sessionFactory.getCurrentSession().createQuery("from Student", Student.class).list();
 //        .createSelectionQuery("from Student", Student.class) // New in Hibernate 6
 //        .getResultList();

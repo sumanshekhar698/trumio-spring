@@ -8,13 +8,15 @@ import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 
-public class MainBatching {
+public class _5_MainBatching {
     public static void main(String[] args) {
         System.out.println("START of main()");
 
 //		via XML
         @SuppressWarnings("resource")
-        ApplicationContext context = new ClassPathXmlApplicationContext("beans_config/transaction_config.xml");
+        ApplicationContext context = new ClassPathXmlApplicationContext(
+                "beans_config/transaction_config.xml");
+
         JdbcTemplate template = context.getBean("jdbcTemplate", JdbcTemplate.class);
         StudentDAO studentDaoBean = context.getBean("studentDAO", StudentDAO.class);
 

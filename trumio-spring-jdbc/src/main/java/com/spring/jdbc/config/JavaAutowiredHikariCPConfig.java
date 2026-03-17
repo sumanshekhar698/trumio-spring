@@ -43,7 +43,7 @@ public class JavaAutowiredHikariCPConfig {
 
         // --- SENIOR TUNING ---
         // 1. Pool Size: Balanced for a standard app
-        config.setMaximumPoolSize(10);
+        config.setMaximumPoolSize(10);//TODO
         // 2. minimumIdle: Minimum number of idle connections Hikari maintains
         config.setMinimumIdle(5);
         // 3. Timeout: Don't let threads wait forever (5 seconds)

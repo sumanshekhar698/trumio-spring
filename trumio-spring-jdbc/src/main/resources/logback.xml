@@ -6,12 +6,10 @@
     </appender>
 
     <logger name="org.springframework.jdbc.core.JdbcTemplate" level="DEBUG" />
-
     <logger name="org.springframework.jdbc.core.StatementCreatorUtils" level="TRACE" />
-
     <logger name="org.springframework.jdbc.core.namedparam" level="DEBUG" />
 
-    <logger name="com.zaxxer.hikari" level="ERROR" />
+    <logger name="com.zaxxer.hikari" level="TRACE" />
 
     <root level="INFO">
         <appender-ref ref="STDOUT" />

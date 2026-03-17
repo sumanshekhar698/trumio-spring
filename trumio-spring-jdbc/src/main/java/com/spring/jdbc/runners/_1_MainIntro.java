@@ -11,7 +11,7 @@ import org.springframework.dao.EmptyResultDataAccessException;
 
 import com.spring.jdbc.entities.Student;
 
-public class MainIntro {
+public class _1_MainIntro {
 
     public static void main(String[] args) {
         System.out.println("START <<");

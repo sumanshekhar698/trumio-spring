@@ -8,7 +8,7 @@ import org.springframework.context.annotation.AnnotationConfigApplicationContext
 
 import java.util.List;
 
-public class MainUsingAutowiringAndHikariCP {
+public class _7_MainUsingAutowiringAndHikariCP {
     public static void main(String[] args) {
         System.out.println("START of main()");
 
